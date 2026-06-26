@@ -1,5 +1,5 @@
 import random
-from typing import Optional
+
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
@@ -25,7 +25,9 @@ QUOTES = [
     {"id": 2, "text": "Talk is cheap. Show me the code.", "author": "Linus Torvalds"},
     {"id": 3, "text": "Simplicity is the soul of efficiency.", "author": "Austin Freeman"},
     {"id": 4, "text": "First, solve the problem. Then, write the code.", "author": "John Johnson"},
-    {"id": 5, "text": "Programs must be written for people to read, and only secondarily for machines to execute.", "author": "Harold Abelson"},
+    {"id": 5, "text": "Programs must be written for people to read, "
+            "and only secondarily for machines to execute.",
+             "author": "Harold Abelson"},
     {"id": 6, "text": "One of my most productive days was throwing away 1000 lines of code.", "author": "Ken Thompson"},
     {"id": 7, "text": "Make it work, make it right, make it fast.", "author": "Kent Beck"}
 ]
