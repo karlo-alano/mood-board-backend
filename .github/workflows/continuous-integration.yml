@@ -1,4 +1,4 @@
-name: name: Continuous-Integration
+name: Continuous-Integration
 
 on:
   push:
@@ -24,7 +24,6 @@ jobs:
 
   trivy:
     runs-on: ubuntu-latest
-    needs: gitleaks
 
     steps:
       - name: Checkout
@@ -42,10 +41,16 @@ jobs:
           severity: HIGH,CRITICAL
           ignore-unfixed: true
           exit-code: 1
+
+  lint:
+    runs-on: ubuntu-latest
+    
+    steps:
+      
   
   pytest:
     runs-on: ubuntu-latest
-    needs: trivy
+    needs: [trivy, lint]
 
     steps:
       - name: Checkout
