@@ -4,6 +4,7 @@ from main import app
 
 client = TestClient(app)
 
+
 def test_get_quote():
     response = client.get("/quote")
 
@@ -20,7 +21,7 @@ def test_submit_perfect():
     payload = {
         "original_text": "The quick brown fox jumps over the lazy dog.",
         "typed_text": "The quick brown fox jumps over the lazy dog.",
-        "time_taken_seconds": 10.0
+        "time_taken_seconds": 10.0,
     }
 
     response = client.post("/submit", json=payload)
@@ -37,7 +38,7 @@ def test_submit_with_typos():
     payload = {
         "original_text": "The quick brown fox jumps over the lazy dog.",
         "typed_text": "The quick brown box jumps ovre the lazy dog.",
-        "time_taken_seconds": 10.0
+        "time_taken_seconds": 10.0,
     }
 
     response = client.post("/submit", json=payload)
